@@ -1,0 +1,37 @@
+//slcing the array to specified array
+const arr=[1,2,5,8,9]
+function chunk(arr,size){
+    const final=[]
+    for (let i = 0; i < arr.length; i+=size) {
+        console.log(arr.slice(i,i+size))
+        final.push(arr.slice(i,i+size))
+        
+    }
+    return final
+}
+console.log(chunk(arr,2))
+
+
+//// another logic
+function logic2chunk(arr,size){
+    const final=[]
+    let i=0
+    while (i<arr.length) {
+        final.push(arr.slice(i,i+size))
+        i+=size
+    }
+    return final
+}
+console.log(logic2chunk(arr,3))
+
+///using splice
+
+function chunk2(arr,size){
+    const final=[]
+    const arraycpy =[...arr]
+    while(arraycpy.length>0){
+        final.push(arraycpy.splice(0,size))
+    }
+    return final
+}
+console.log(chunk2(arr,2))
