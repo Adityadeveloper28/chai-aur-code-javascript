@@ -47,3 +47,14 @@ function spiralOrder(matrix) {
 }
 // Example
 console.log(spiralOrder(arr)); // [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
+function spiralOrder2(matrix) {
+  const result = [];
+  while (matrix.length) {
+    result.push(...matrix.shift());
+    matrix.forEach(row => result.push(row.pop()));
+    matrix.reverse().forEach(row => row.reverse());
+  }
+  return result;
+}
+console.log(spiralOrder2(arr)); // [1, 2, 3, 6, 9, 8, 7, 4, 5]
